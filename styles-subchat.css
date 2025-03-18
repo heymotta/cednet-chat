@@ -1,0 +1,178 @@
+/* Subchat Styles */
+.subchat-container {
+    margin-left: 46px; /* Align with message content */
+    margin-bottom: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 3px solid #1d74f5;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.subchat-container.active {
+    max-height: 500px;
+    opacity: 1;
+    padding: 10px;
+}
+
+.subchat-header {
+    font-size: 12px;
+    color: #6c727a;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.subchat-header i {
+    margin-right: 5px;
+}
+
+.subchat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.subchat-message {
+    display: flex;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.subchat-message:last-child {
+    border-bottom: none;
+}
+
+.subchat-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    background-color: #5a67d8;
+    margin-right: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    flex-shrink: 0;
+    font-size: 12px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.subchat-avatar.online::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 6px;
+    height: 6px;
+    background-color: #2de0a5;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.subchat-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.subchat-content {
+    flex: 1;
+    padding: 0;
+    max-width: calc(100% - 36px);
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.subchat-header-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.subchat-sender {
+    font-weight: 600;
+    margin-right: 8px;
+    color: #0c0d0f;
+    font-size: 13px;
+}
+
+.subchat-time {
+    font-size: 11px;
+    color: #9ea2a8;
+}
+
+.subchat-text {
+    line-height: 1.4;
+    color: #2f343d;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 13px;
+}
+
+.subchat-input {
+    display: flex;
+    margin-top: 5px;
+}
+
+.subchat-input input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #e1e5e9;
+    border-radius: 4px;
+    font-size: 13px;
+    margin-right: 8px;
+}
+
+.subchat-input input:focus {
+    border-color: #5a67d8;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(90, 103, 216, 0.1);
+}
+
+.subchat-input button {
+    background-color: #1d74f5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.subchat-input button:hover {
+    background-color: #1667d9;
+}
+
+/* Make comment count clickable */
+.message-stat {
+    cursor: pointer;
+}
+
+.message-stat:hover {
+    color: #1d74f5;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .subchat-container {
+        margin-left: 30px;
+    }
+    
+    .subchat-input input {
+        padding: 10px;
+    }
+    
+    .subchat-input button {
+        width: 40px;
+    }
+}

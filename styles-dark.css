@@ -1,0 +1,63 @@
+:root {
+    --bg-primary: #fff;
+    --bg-secondary: #f8f9fa;
+    --bg-sidebar: #2f343d;
+    --bg-users-panel: #2f343d;
+    --text-primary: #333;
+    --text-secondary: #555;
+    --text-muted: #888;
+    --border-color: #ddd;
+    --border-sidebar: #383d48;
+    --input-bg: #fff;
+    --input-border: #ddd;
+    --button-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --message-bg: #f8f9fa;
+}
+
+/* Apply theme variables */
+body {
+    color: var(--text-primary);
+}
+
+.container {
+    background-color: var(--bg-primary);
+}
+
+#login-screen {
+    background-color: var(--bg-primary);
+}
+
+.login-container {
+    background-color: var(--bg-secondary);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+    color: var(--text-primary);
+}
+
+.sidebar {
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-sidebar);
+}
+
+.users-panel {
+    background-color: var(--bg-users-panel);
+    border-left: 1px solid var(--border-sidebar);
+}
+
+.message {
+    background-color: var(--message-bg);
+}
+
+.message-text {
+    color: var(--text-primary);
+}
+
+.messages {
+    background-color: var(--bg-secondary);
+}

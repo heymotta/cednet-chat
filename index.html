@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CedNet Chat</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles-subchat.css">
+    <link rel="stylesheet" href="./styles-users.css">
+    <link rel="stylesheet" href="./styles-dark.css">
+    <link rel="stylesheet" href="./styles-reactions.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Auth Screen -->
+        <div id="login-screen">
+            <div class="login-container">
+                <div class="logo">
+                    <img src="logo-new.svg" alt="CedNet Chat Logo">
+                </div>
+                <h1>CedNet Chat</h1>
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Login</button>
+                    <button class="tab-btn" data-tab="register">Cadastro</button>
+                </div>
+                
+                <!-- Login Form -->
+                <div id="login-tab" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="Digite seu email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Senha</label>
+                        <input type="password" id="login-password" placeholder="Digite sua senha" required>
+                    </div>
+                    <button id="login-button" class="auth-button">Entrar</button>
+                </div>
+                
+                <!-- Register Form -->
+                <div id="register-tab" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-username">Nome de Usuário</label>
+                        <input type="text" id="register-username" placeholder="Digite seu nome de usuário" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" placeholder="Digite seu email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Senha</label>
+                        <input type="password" id="register-password" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-picture">Foto de Perfil</label>
+                        <div class="profile-upload">
+                            <div id="profile-preview" class="profile-preview">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <input type="file" id="profile-picture" accept="image/*" class="file-input">
+                            <label for="profile-picture" class="upload-btn">Escolher Foto</label>
+                        </div>
+                    </div>
+                    <button id="register-button" class="auth-button">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Screen (initially hidden) -->
+        <div id="chat-screen" class="hidden">
+            <div class="sidebar">
+                <div class="logo-small">
+                    <img src="logo-new.svg" alt="CedNet Chat Logo">
+                    <h2>CedNet Chat</h2>
+                </div>
+                <div class="user-info">
+                    <div class="user-profile-dropdown">
+                        <div class="user-profile-header" id="user-profile-header">
+                            <div class="user-avatar-small" id="user-avatar-small"></div>
+                            <span id="current-user"></span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="user-settings-dropdown" id="user-settings-dropdown">
+                            <div class="user-settings-header">Configurações do Usuário</div>
+                            <div class="user-settings-content">
+                                <div class="form-group">
+                                    <label for="settings-username">Nome de Usuário</label>
+                                    <input type="text" id="settings-username" placeholder="Digite seu nome de usuário">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-status">Status</label>
+                                    <div class="status-options">
+                                        <div class="status-option" data-status="online">
+                                            <div class="status-icon online"></div>
+                                            <span>Online</span>
+                                        </div>
+                                        <div class="status-option" data-status="busy">
+                                            <div class="status-icon busy"></div>
+                                            <span>Ocupado</span>
+                                        </div>
+                                        <div class="status-option" data-status="away">
+                                            <div class="status-icon away"></div>
+                                            <span>Ausente</span>
+                                        </div>
+                                        <div class="status-option" data-status="offline">
+                                            <div class="status-icon offline"></div>
+                                            <span>Offline</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="settings-profile-picture">Foto de Perfil</label>
+                                    <div class="profile-upload">
+                                        <div id="settings-profile-preview" class="profile-preview">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <input type="file" id="settings-profile-picture" accept="image/*" class="file-input">
+                                        <label for="settings-profile-picture" class="upload-btn">Escolher Foto</label>
+                                    </div>
+                                </div>
+                                <button id="save-settings-button" class="auth-button">Salvar Alterações</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="channels">
+                    <h3>Canais</h3>
+                    <ul>
+                        <li class="channel active" data-channel="geral"><i class="fas fa-hashtag"></i><span>Geral</span><div class="notification-badge">0</div></li>
+                        <li class="channel" data-channel="tecnico"><i class="fas fa-hashtag"></i><span>Técnico</span><div class="notification-badge">0</div></li>
+                        <li class="channel" data-channel="comercial"><i class="fas fa-hashtag"></i><span>Comercial</span><div class="notification-badge">0</div></li>
+                        <li class="channel" data-channel="interno"><i class="fas fa-hashtag"></i><span>Interno</span><div class="notification-badge">0</div></li>
+                    </ul>
+                </div>
+                <div class="channels">
+                    <h3>Mensagens Diretas</h3>
+                    <ul id="direct-messages">
+                        <li class="direct-message" data-user="karlos">
+                            <div class="user-avatar online">K</div>
+                            <span>Karlos</span>
+                        </li>
+                        <li class="direct-message" data-user="atendente">
+                            <div class="user-avatar online">C</div>
+                            <span>Atendente Virtual</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="chat-area">
+                <div class="chat-header">
+                    <h2 id="current-channel"># geral</h2>
+                </div>
+                <div class="messages" id="messages">
+                    <div class="system-message">
+                        <i class="fas fa-check-circle checkmark"></i> Bem-vindo ao canal #geral! Este é o canal principal para discussões gerais.
+                    </div>
+                </div>
+                <div class="emoji-picker" id="emoji-picker">
+                    <!-- Emoji options will be populated dynamically -->
+                </div>
+                <div class="message-input-container">
+                    <textarea id="message-input" placeholder="Digite sua mensagem..."></textarea>
+                    <button id="send-button" class="send-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="users-panel">
+                <div class="users-panel-header">Usuários Online</div>
+                <div class="users-list" id="users-list">
+                    <!-- Users will be populated here dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

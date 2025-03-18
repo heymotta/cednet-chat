@@ -1,0 +1,86 @@
+/* Emoji Reactions Styles */
+.message-reactions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.reaction-button {
+    background: none;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #666;
+    transition: background-color 0.2s;
+}
+
+.reaction-button:hover {
+    background-color: #f0f0f0;
+}
+
+.reaction {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    font-size: 14px;
+    gap: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.reaction:hover {
+    background-color: #e0e0e0;
+}
+
+.reaction.active {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.reaction-count {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Emoji Picker */
+.emoji-picker {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    display: none;
+    z-index: 1000;
+    max-width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.emoji-picker.active {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+}
+
+.emoji-option {
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.emoji-option:hover {
+    background-color: #f0f0f0;
+}
