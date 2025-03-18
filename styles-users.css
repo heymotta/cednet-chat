@@ -129,6 +129,43 @@
 /* Responsive styles */
 @media (max-width: 1024px) {
     .users-panel {
-        display: none;
+        position: fixed;
+        right: -180px;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        transition: right 0.3s ease;
+    }
+
+    .users-panel.active {
+        right: 0;
+    }
+
+    .users-toggle-btn {
+        display: block;
+        position: fixed;
+        right: 10px;
+        top: 10px;
+        background: #2f343d;
+        color: #eceff4;
+        padding: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+}
+
+@media (max-width: 480px) {
+    .users-list-item {
+        padding: 4px 8px;
+    }
+
+    .users-list-item .username {
+        font-size: 11px;
+    }
+
+    .users-list-item .user-avatar {
+        width: 20px;
+        height: 20px;
     }
 }

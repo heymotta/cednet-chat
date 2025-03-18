@@ -165,14 +165,37 @@
 /* Responsive styles */
 @media (max-width: 768px) {
     .subchat-container {
-        margin-left: 30px;
+        margin-left: 20px;
+        margin-right: 10px;
     }
     
+    .subchat-messages {
+        max-height: 250px;
+    }
+
+    .subchat-message {
+        padding: 8px 0;
+    }
+
+    .subchat-input {
+        padding: 8px;
+    }
+
     .subchat-input input {
-        padding: 10px;
+        padding: 8px;
+        font-size: 14px;
     }
     
     .subchat-input button {
-        width: 40px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .subchat-sender {
+        font-size: 12px;
+    }
+
+    .subchat-timestamp {
+        font-size: 10px;
     }
 }

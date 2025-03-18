@@ -40,7 +40,7 @@ body {
     justify-content: center;
     height: 100%;
     background-color: #fff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23f0f0f0' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23f0f0f0' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .login-container {
@@ -955,6 +955,8 @@ body {
     .container {
         border-radius: 0;
         height: 100vh;
+        width: 100%;
+        max-width: none;
     }
     
     #chat-screen {
@@ -965,30 +967,58 @@ body {
         width: 100%;
         height: auto;
         padding: 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.active {
+        transform: translateY(0);
     }
     
     .chat-area {
-        height: calc(100vh - 150px);
+        height: calc(100vh - 60px);
+        margin-top: 60px;
+        width: 100%;
     }
     
     .message-content {
         max-width: 85%;
+        font-size: 14px;
     }
     
     .message {
-        padding: 10px 0;
-        margin-bottom: 10px;
+        padding: 8px;
+        margin-bottom: 8px;
     }
     
     .message-header {
         flex-wrap: wrap;
+        font-size: 12px;
     }
     
     .message-actions {
         flex-wrap: wrap;
+        font-size: 12px;
     }
-    
-    .reply-button {
+
+    .message-input {
+        padding: 10px;
+    }
+
+    .message-input textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .message-input button {
+        padding: 8px 12px;
+    }
+}
+    .message-input {
         padding: 8px 20px;
         font-size: 14px;
         margin-bottom: 5px;
